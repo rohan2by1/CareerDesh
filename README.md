@@ -2,7 +2,7 @@
 
 A modern job board web application with public job listings and an admin dashboard for managing job postings. Built with Next.js, MongoDB, and Tailwind CSS.
 
-## Features
+## Featuresss
 
 ### Public Features
 - Browse and search job listings
