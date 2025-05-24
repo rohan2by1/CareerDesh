@@ -60,9 +60,6 @@ export default async function Home() {
                     <ArrowRightIcon className="h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/admin/login">Employer Login</Link>
-                </Button>
               </div>
             </div>
             <div className="relative">

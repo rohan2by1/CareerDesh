@@ -3,8 +3,8 @@ export function Footer() {
   
   return (
     <footer className="border-t bg-muted/40">
-      <div className="container py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container py-5 md:py-12">
+        <div className="pl-10 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">JobBoard</h3>
             <p className="text-muted-foreground">

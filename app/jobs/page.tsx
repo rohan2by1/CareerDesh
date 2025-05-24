@@ -69,7 +69,7 @@ export default async function JobsPage() {
   
   return (
     <div className="container py-10">
-      <div className="flex flex-col gap-4">
+      <div className="p-2 flex flex-col gap-4">
         <h1 className="text-3xl font-bold">Browse Job Listings</h1>
         <p className="text-muted-foreground text-lg">Find your next career opportunity from our curated list of jobs</p>
         
@@ -92,7 +92,7 @@ export default async function JobsPage() {
         </div>
         
         {/* Job Listings */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
           {jobs.map((job) => (
             <JobCard key={job._id} job={job} />
           ))}

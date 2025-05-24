@@ -73,21 +73,31 @@ export default async function JobDetailPage({ params }: Props) {
   
   return (
     <div className="container py-10">
-      <Link href="/jobs" className="flex items-center gap-2 text-muted-foreground hover:text-primary mb-6">
-        <ArrowLeftIcon className="h-4 w-4" />
-        Back to all jobs
+      <Link href="/jobs" className="ml-4 mb-6 inline-block">
+        <div className="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+          <ArrowLeftIcon className="h-4 w-4" />
+          <span>Back to all jobs</span>
+        </div>
       </Link>
-      
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="md:col-span-2 space-y-8">
+
+      <div className="p-2 grid md:grid-cols-3 gap-8">
+        <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-10 sticky md:col-span-2 space-y-8">
           <div>
             <div className="flex items-center gap-4 mb-4">
               <h1 className="text-3xl font-bold">{job.title}</h1>
-              <Badge variant={job.type === "Full-time" ? "default" : job.type === "Part-time" ? "secondary" : "outline"}>
+              <Badge
+                variant={
+                  job.type === "Full-time"
+                    ? "default"
+                    : job.type === "Part-time"
+                    ? "secondary"
+                    : "outline"
+                }
+              >
                 {job.type}
               </Badge>
             </div>
-            
+
             <div className="flex flex-col gap-3">
               <div className="flex items-center text-muted-foreground gap-2">
                 <BuildingIcon className="h-4 w-4" />
@@ -99,41 +109,54 @@ export default async function JobDetailPage({ params }: Props) {
               </div>
               <div className="flex items-center text-muted-foreground gap-2">
                 <CalendarIcon className="h-4 w-4" />
-                <span>Posted {formatDistanceToNow(new Date(job.postedDate), { addSuffix: true })}</span>
+                <span>
+                  Posted{" "}
+                  {formatDistanceToNow(new Date(job.postedDate), {
+                    addSuffix: true,
+                  })}
+                </span>
               </div>
               {job.deadline && (
                 <div className="flex items-center text-muted-foreground gap-2">
                   <ClockIcon className="h-4 w-4" />
-                  <span>Apply before {new Date(job.deadline).toLocaleDateString()}</span>
+                  <span>
+                    Apply before {new Date(job.deadline).toLocaleDateString()}
+                  </span>
                 </div>
               )}
             </div>
           </div>
-          
+
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Job Description</h2>
+            <h2 className="underline-full text-2xl font-semibold mb-4 underline">Job Description</h2>
             <div dangerouslySetInnerHTML={{ __html: job.description }} />
           </div>
         </div>
-        
+
         <div>
           <Card className="p-6 sticky top-24">
             {job.salary && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium text-muted-foreground mb-2">Salary Range</h3>
-                <p className="text-xl font-semibold text-primary">{job.salary}</p>
+                <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                  Salary Range
+                </h3>
+                <p className="text-xl font-semibold text-primary">
+                  {job.salary}
+                </p>
               </div>
             )}
-            
+
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-muted-foreground mb-2">Key Requirements</h3>
+              <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                Key Requirements
+              </h3>
               <ul className="list-disc pl-5 space-y-1">
                 {job.requirements.map((req, index) => (
                   <li key={index}>{req}</li>
                 ))}
               </ul>
             </div>
-            
+
             <Button className="w-full gap-2" size="lg" asChild>
               <a href={job.applyLink} target="_blank" rel="noopener noreferrer">
                 Apply Now
